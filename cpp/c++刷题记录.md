@@ -19,3 +19,11 @@ vector
 [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
 set
+
+vector `<int>` m(128,0)
+
+[560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/)
+
+map容器默认排序规则为 按照key值进行 从小到大排序
+
+unordered_map性能更高
