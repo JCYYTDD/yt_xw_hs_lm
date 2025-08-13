@@ -66,3 +66,6 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 
 }
 ```
+160. 相交链表
+指针
+结构体struct
