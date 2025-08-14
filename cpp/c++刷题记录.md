@@ -69,3 +69,5 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 160. 相交链表
 指针
 结构体struct
+238. 除自身以外数组的乘积
+std::reverse函数  algorithm包
