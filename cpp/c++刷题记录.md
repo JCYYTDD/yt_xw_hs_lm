@@ -71,3 +71,34 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 结构体struct
 238. 除自身以外数组的乘积
 std::reverse函数  algorithm包
+
+94. 二叉树的中序遍历
+3. 拷贝传递 vs 引用传递
+特性	拷贝传递 (vector<int> ans) |	引用传递 (vector<int>& ans)
+内存占用	每次递归生成副本，内存开销大|	始终操作同一个 vector，无额外开销
+性能	较差（频繁拷贝）	|高效
+代码写法	需要返回 ans	|直接修改原 ans，无需返回值
+适用场景	需要保留中间状态（较少使用）|	绝大多数情况（推荐）
+
+```cpp
+//引用传递
+ void dfs(TreeNode* p, vector<int> &ans) {
+	 if (p->left != nullptr) {
+		 dfs(p->left, ans);
+	 }
+	 if (p != nullptr) ans.push_back(p->val);
+	 if (p->right != nullptr) {
+		 dfs(p->right, ans);
+	 }
+ }
+ //拷贝传递
+  void dfs(TreeNode* p, vector<int> ans) {
+	 if (p->left != nullptr) {
+		 dfs(p->left, ans);
+	 }
+	 if (p != nullptr) ans.push_back(p->val);
+	 if (p->right != nullptr) {
+		 dfs(p->right, ans);
+	 }
+ }
+```
