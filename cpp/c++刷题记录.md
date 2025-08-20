@@ -73,7 +73,7 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 std::reverse函数  algorithm包
 
 94. 二叉树的中序遍历
-3. 拷贝传递 vs 引用传递
+拷贝传递 vs 引用传递
 特性	拷贝传递 (vector<int> ans) |	引用传递 (vector<int>& ans)
 内存占用	每次递归生成副本，内存开销大|	始终操作同一个 vector，无额外开销
 性能	较差（频繁拷贝）	|高效
@@ -100,5 +100,38 @@ std::reverse函数  algorithm包
 	 if (p->right != nullptr) {
 		 dfs(p->right, ans);
 	 }
+ }
+```
+46. 全排列
+
+vector<int>
+拷贝传递、引用传递
+```cpp
+ void dfsp(vector<int>& nums, int i,vector<int> &hash,vector<int> temp,vector<vector<int>>& ans) {
+
+	 if (temp.size() >= nums.size()) {
+		 ans.push_back(temp);
+		 return;
+	 }
+
+
+	 for (int q =0; q < nums.size(); q++) {
+		 if (hash[q] == 1) continue;
+		 hash[q] = 1;
+		 temp.push_back(nums[q]);
+		 dfsp(nums, q + 1,hash,temp,ans);
+		 temp.pop_back();
+		 hash[q] = 0;
+	 }
+	 
+ }
+
+ vector<vector<int>> permute(vector<int>& nums) {
+	 vector<vector<int>> ans;
+	 vector<int> hash(nums.size(), 0);
+	 vector<int> temp;
+	 dfsp(nums, 0, hash, temp, ans);
+
+	 return ans;
  }
 ```
